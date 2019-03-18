@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill.c                                             :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:34 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:47:18 by florientako      ###   ########.fr       */
+/*   Created: 2018/09/03 15:11:59 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:12:56 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-char		**ft_fill_empty(char **tab, int max)
+void	ft_sort_integer_table(int *tab, int size)
 {
-	int y;
+	int		i;
 
-	y = 0;
-	if (!(tab = (char **)malloc(sizeof(char *) * (max + 1))))
-		return (NULL);
-	while (y < max)
+	i = 0;
+	while (tab)
 	{
-		tab[y] = ft_strnew(max);
-		y++;
+		while (i != size)
+		{
+			if (tab[i] > tab[i + 1])
+			{
+				ft_swap(&tab[i], &tab[i + 1]);
+				i = 0;
+			}
+			else
+				i++;
+		}
 	}
-	tab[y] = NULL;
-	return (tab);
 }

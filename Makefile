@@ -5,30 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 20181106 18:18:31 by florientako       #+#    #+#              #
-#    Updated: 20181128 10:07:18 by floakoud         ###   ########.fr        #
+#    Created: 2017/11/24 01:09:06 by flakouda          #+#    #+#              #
+#    Updated: 2019/03/18 16:51:38 by floakoud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = fillit
-
-LIBFT =	srcs/libft
-
-SRC_PATH = srcs/
-
-SRC_POS = $(addprefix $(SRC_PATH),$(SRC))
-
-SRC =	checker.c	\
-		error.c		\
-		fill.c		\
-		fonctions.c	\
-		main.c		\
-		solution.c	\
-
-
-OBJ = $(SRC:.c=.o)
-
-FLAGS = -Wall -Werror -Wextra
 
 #**************************************************#
 
@@ -48,19 +28,36 @@ WHITE		= \033[0;37m
 
 #**************************************************#
 
-all	:	$(NAME)
+NAME = fillit
 
-$(NAME) :
-	@make -C $(LIBFT)
-	@gcc $(FLAGS) -c $(SRC_POS)
-	@gcc $(FLAGS) $(OBJ) srcs/libft/libft.a -o $(NAME)
+FLAGS = -Wall -Werror -Wextra
 
-clean	:
-	@make clean -C $(LIBFT)
-	@rm -f $(OBJ)
+SRC = 	checker.c \
+		error.c \
+		fill.c \
+		ft_fonctions.c \
+		main.c \
+		solution.c \
 
-fclean	:	clean
-	@make fclean -C $(LIBFT)
-	@rm -f $(NAME)
+OBJ = $(SRC:.c=.o)
 
-re	:	fclean	all
+all : $(NAME)
+
+$(NAME):
+	@make -C libft
+	@gcc -c $(FLAGS) $(SRC)
+	@echo "object created [$(GREEN)OK$(END)]"
+	@gcc $(FLAGS) $(OBJ) -o $(NAME) libft/libft.a
+	@echo "exec created [$(GREEN)OK$(END)]"
+
+clean :
+	@make clean -C libft
+	@rm -rf $(OBJ)
+	@echo "objects deleted [$(RED)CLEAR$(END)]"
+
+fclean : clean
+	@make fclean -C libft
+	@rm -rf $(NAME)
+	@echo "exec deleted [$(RED)CLEAR$(END)]"
+
+re : fclean all

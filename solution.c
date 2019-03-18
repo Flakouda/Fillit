@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   solution.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:20:25 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:32:06 by florientako      ###   ########.fr       */
+/*   Created: 2017/12/01 01:34:23 by flakouda          #+#    #+#             */
+/*   Updated: 2019/03/18 16:02:54 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "fillit.h"
 
 char				**ft_result(t_struct *block, int max)
 {

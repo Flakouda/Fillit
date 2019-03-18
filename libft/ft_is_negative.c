@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 21:39:09 by florientako       #+#    #+#             */
-/*   Updated: 2018/11/30 13:14:48 by flakouda         ###   ########.fr       */
+/*   Created: 2018/08/22 19:51:27 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:09:09 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_is_negative(int n)
 {
-	char	*tab;
-
-	if (!(tab = (char *)malloc(sizeof(*tab) * (size + 1))))
-		return (NULL);
-	if (!size)
-		return (tab);
-	ft_memset(tab, '\0', size + 1);
-	return (tab);
+	if (n < 0)
+		ft_putchar('1');
+	else
+		ft_putchar('0');
 }

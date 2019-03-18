@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fonctions.c                                        :+:      :+:    :+:   */
+/*   ft_fonctions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:26 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:43:44 by florientako      ###   ########.fr       */
+/*   Created: 2017/12/01 00:38:42 by flakouda          #+#    #+#             */
+/*   Updated: 2019/03/18 17:27:24 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "fillit.h"
 
 t_struct			*ft_block(char *str)
 {
@@ -39,6 +39,20 @@ t_struct			*ft_block(char *str)
 	}
 	tmp->next = NULL;
 	return (block);
+}
+
+int					ft_count_x(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (*str)
+	{
+		if (*str == 'x')
+			i++;
+		str++;
+	}
+	return (i);
 }
 
 t_struct			*ft_default_xy(t_struct *block)

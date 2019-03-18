@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:44 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:39:01 by florientako      ###   ########.fr       */
+/*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
+/*   Updated: 2019/03/18 17:26:08 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "fillit.h"
 
 char				*ft_read_check(char *argv)
 {
@@ -21,18 +21,15 @@ char				*ft_read_check(char *argv)
 	char	buffer[1];
 
 	i = 0;
-	if ((fd = open(argv, O_RDONLY)) == -1)
-		ft_error();
+	fd = open(argv, O_RDONLY) == -1 ? ft_error() : 0;
 	while ((ret = read(fd, buffer, 1)))
 	{
 		tmp[i] = buffer[0];
 		i++;
-		if (i > 545)
-			ft_error();
+		i > 545 ? ft_error() : 0;
 	}
 	tmp[i] = '\0';
-	if ((close(fd)) == -1)
-		ft_error();
+	close(fd) == -1 ? ft_error() : 0;
 	return (ft_strdup(tmp));
 }
 
@@ -47,31 +44,29 @@ int					ft_map_check(char *read)
 	end_line = 0;
 	while (*read)
 	{
-		if (*read == '#')
-			dieses++;
-		else if (*read == '.')
-			points++;
-		else if (*read == '\n')
+		*read == '#' ? dieses++ : 0;
+		*read == '.' ? points++ : 0;
+		if (*read == '\n')
+		{
 			end_line++;
-		else
+			if ((*(read + 1) == '\n' || *(read + 1) == '\0') && (end_line % 4))
+					ft_error();
+		}
+		if (*read != '#' && *read != '.' && *read != '\n')
 			ft_error();
 		read++;
 	}
-	if (dieses < 4)
-		ft_error();
-	if (points % 4 || dieses % 4 || (end_line + 1) % 5)
+	if (points % 4 || dieses % 4 || (end_line + 1) % 5 || dieses < 4)
 		ft_error();
 	return (dieses / 4);
 }
 
-void	ft_map_line_check(char *read)
+/*void	ft_map_line_check(char *read)
 {
 	int		i;
-	int		ct;
 	int		line;
 
 	i = 0;
-	ct = 0;
 	line = 0;
 	while (read[i])
 	{
@@ -80,7 +75,6 @@ void	ft_map_line_check(char *read)
 			line++;
 			if (read[i + 1] == '\n' || read[i + 1] == '\0')
 			{
-				ct++;
 				if (line % 4)
 					ft_error();
 				line = 0;
@@ -88,6 +82,30 @@ void	ft_map_line_check(char *read)
 			}
 		}
 		i++;
+	}
+	if (line % 4)
+		ft_error();
+}*/
+
+void	ft_map_line_check(char *read)
+{
+	int		line;
+
+	line = 0;
+	while (*read)
+	{
+		if (*read == '\n')
+		{
+			line++;
+			if (*(read + 1) == '\n' || *(read + 1) == '\0')
+			{
+				if (line % 4)
+					ft_error();
+				line = 0;
+				read++;
+			}
+		}
+		read++;
 	}
 	if (line % 4)
 		ft_error();

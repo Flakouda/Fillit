@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 10:28:13 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:28:50 by florientako      ###   ########.fr       */
+/*   Created: 2017/11/24 00:26:54 by flakouda          #+#    #+#             */
+/*   Updated: 2019/03/18 16:28:56 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include "../srcs/libft/libft.h"
-
+# include "libft/libft.h"
 
 typedef struct		s_struct
 {
@@ -28,6 +27,7 @@ typedef struct		s_struct
 	struct s_struct	*next;
 }					t_struct;
 
+char				*ft_strnew_line(size_t size);
 void				ft_map_line_check(char *read);
 t_struct			*ft_default_xy(t_struct *block);
 int					main(int argc, char **argv);
