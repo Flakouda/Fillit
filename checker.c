@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 17:26:08 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/18 17:41:28 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char				*ft_read_check(char *argv)
 	char	buffer[1];
 
 	i = 0;
-	fd = open(argv, O_RDONLY) == -1 ? ft_error() : 0;
+	(fd = open(argv, O_RDONLY)) == -1 ? ft_error() : 0;
 	while ((ret = read(fd, buffer, 1)))
 	{
 		tmp[i] = buffer[0];
@@ -46,13 +46,8 @@ int					ft_map_check(char *read)
 	{
 		*read == '#' ? dieses++ : 0;
 		*read == '.' ? points++ : 0;
-		if (*read == '\n')
-		{
-			end_line++;
-			if ((*(read + 1) == '\n' || *(read + 1) == '\0') && (end_line % 4))
-					ft_error();
-		}
-		if (*read != '#' && *read != '.' && *read != '\n')
+		*read == '\n' ? end_line++ : 0;
+		if (!(*read == '#' || *read == '.' || *read == '\n'))
 			ft_error();
 		read++;
 	}
@@ -61,36 +56,12 @@ int					ft_map_check(char *read)
 	return (dieses / 4);
 }
 
-/*void	ft_map_line_check(char *read)
+void	ft_map_line_check(char *read)
 {
 	int		i;
 	int		line;
 
 	i = 0;
-	line = 0;
-	while (read[i])
-	{
-		if (read[i] == '\n')
-		{
-			line++;
-			if (read[i + 1] == '\n' || read[i + 1] == '\0')
-			{
-				if (line % 4)
-					ft_error();
-				line = 0;
-				i++;
-			}
-		}
-		i++;
-	}
-	if (line % 4)
-		ft_error();
-}*/
-
-void	ft_map_line_check(char *read)
-{
-	int		line;
-
 	line = 0;
 	while (*read)
 	{
