@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 18:14:50 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/18 18:27:01 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int					ft_map_check(char *read)
 	return (dieses / 4);
 }
 
-void	ft_map_line_check(char *read)
+void				ft_map_line_check(char *read)
 {
 	int		line;
 

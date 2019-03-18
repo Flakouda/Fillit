@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 01:35:55 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 18:06:28 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/18 18:27:37 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		*ft_strnew_line(size_t size)
 {
-	char *str;
+	char	*str;
 
 	if ((str = (char *)malloc(sizeof(char) * (size + 1))) == NULL)
 		return (NULL);
@@ -22,9 +22,9 @@ static char		*ft_strnew_line(size_t size)
 	return (str);
 }
 
-char		**ft_fill_empty(char **tab, int max)
+char			**ft_fill_empty(char **tab, int max)
 {
-	int y;
+	int		y;
 
 	y = -1;
 	if (!(tab = (char **)malloc(sizeof(char *) * (max + 1))))
@@ -35,7 +35,7 @@ char		**ft_fill_empty(char **tab, int max)
 	return (tab);
 }
 
-int			ft_max_size(t_struct *block)
+int				ft_max_size(t_struct *block)
 {
 	int		i;
 	int		max;
