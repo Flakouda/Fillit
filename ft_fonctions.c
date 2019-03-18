@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:38:42 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 17:34:10 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/18 18:15:39 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int					ft_count_x(char *str)
 	i = 0;
 	while (*str)
 	{
-		if (*str == 'x')
-			i++;
+		*str == 'x' ? i++ : 0;
 		str++;
 	}
 	return (i);
@@ -75,12 +74,12 @@ t_struct			*ft_block_xy(t_struct *block, char **tab)
 	int		y;
 	int		i;
 
-	y = 0;
+	y = -1;
 	i = 0;
-	while (tab[y])
+	while (tab[++y])
 	{
-		x = 0;
-		while (tab[y][x])
+		x = -1;
+		while (tab[y][++x])
 		{
 			if (tab[y][x] == '#')
 			{
@@ -88,9 +87,7 @@ t_struct			*ft_block_xy(t_struct *block, char **tab)
 				block->y[i] = y;
 				i++;
 			}
-			x++;
 		}
-		y++;
 	}
 	return (block);
 }
@@ -103,21 +100,17 @@ t_struct			*ft_update_xy(t_struct *block, int x, int y)
 
 	xmin = 200;
 	ymin = 200;
-	i = 0;
-	while (i != 4)
+	i = -1;
+	while (++i != 4)
 	{
-		if (block->x[i] < xmin)
-			xmin = block->x[i];
-		if (block->y[i] < ymin)
-			ymin = block->y[i];
-		i++;
+		block->x[i] < xmin ? xmin = block->x[i] : 0;
+		block->y[i] < ymin ? ymin = block->y[i] : 0;
 	}
-	i = 0;
-	while (i != 4)
+	i = -1;
+	while (++i != 4)
 	{
 		block->x[i] = block->x[i] - xmin + x;
 		block->y[i] = block->y[i] - ymin + y;
-		i++;
 	}
 	return (block);
 }

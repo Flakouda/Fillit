@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 17:41:28 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/18 18:14:50 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ int					ft_map_check(char *read)
 
 void	ft_map_line_check(char *read)
 {
-	int		i;
 	int		line;
 
-	i = 0;
 	line = 0;
 	while (*read)
 	{
@@ -70,16 +68,14 @@ void	ft_map_line_check(char *read)
 			line++;
 			if (*(read + 1) == '\n' || *(read + 1) == '\0')
 			{
-				if (line % 4)
-					ft_error();
+				(line % 4) ? ft_error() : 0;
 				line = 0;
 				read++;
 			}
 		}
 		read++;
 	}
-	if (line % 4)
-		ft_error();
+	(line % 4) ? ft_error() : 0;
 }
 
 void				ft_check_chaine(char *str)
@@ -91,12 +87,10 @@ void				ft_check_chaine(char *str)
 		i++;
 	str[i] = 'x';
 	str = ft_check_dieses(i, str);
-	if (ft_count_x(str) != 4)
-		ft_error();
+	ft_count_x(str) != 4 ? ft_error() : 0;
 	while (*str)
 	{
-		if (*str == 'x')
-			*str = '#';
+		*str == 'x' ? *str = '#' : 0;
 		str++;
 	}
 }
@@ -118,12 +112,6 @@ char				*ft_check_dieses(int i, char *str)
 		str[i + 5] = 'x';
 		str = ft_check_dieses(i + 5, str);
 	}
-	if (i - 5 >= 0 && str[i - 5] == '#')
-	{
-		str[i - 5] = 'x';
-		str = ft_check_dieses(i - 5, str);
-	}
-	if (str[i] == '#')
-		str[i] = 'x';
+	str[i] == '#' ? str[i] = 'x' : 0;
 	return (str);
 }
