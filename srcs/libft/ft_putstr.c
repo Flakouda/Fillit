@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:38 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:33 by florientako      ###   ########.fr       */
+/*   Created: 2018/05/06 11:55:02 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:12:52 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-int		ft_error_arguments(void)
+void	ft_putstr(char const *s)
 {
-	ft_putstr("Usage: ./fillit target_file\n");
-	exit(0);
-}
-
-int		ft_error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
+	if (!s)
+		return ;
+	while (*s)
+		ft_putchar(*s++);
 }

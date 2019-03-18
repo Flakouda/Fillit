@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 00:29:53 by flakouda          #+#    #+#             */
-/*   Updated: 2018/01/04 16:16:53 by thescriv         ###   ########.fr       */
+/*   Created: 2019/03/14 17:20:20 by florientako       #+#    #+#             */
+/*   Updated: 2019/03/18 10:52:16 by florientako      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,30 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-void	ft_map_line_check(char *read)
+int					ft_count_x(char *str)
 {
 	int		i;
-	int		ct;
-	int		line;
 
 	i = 0;
-	ct = 0;
-	line = 0;
-	while (read[i])
+	while (*str)
 	{
-		if (read[i] == '\n')
-		{
-			line++;
-			if (read[i + 1] == '\n' || read[i + 1] == '\0')
-			{
-				ct++;
-				if (line % 4)
-					ft_error();
-				line = 0;
-				i++;
-			}
-		}
-		i++;
+		if (*str == 'x')
+			i++;
+		str++;
 	}
-	if (line % 4)
-		ft_error();
+	return (i);
+}
+
+int			ft_max_size(t_struct *block)
+{
+	int		i;
+	int		max;
+
+	i = 0;
+	max = 2;
+	while (block->next && i++)
+		block = block->next;
+	while (max * max < i * 4)
+		max++;
+	return (max);
 }

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:38 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:33 by florientako      ###   ########.fr       */
+/*   Created: 2018/11/15 13:54:59 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:14:37 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-int		ft_error_arguments(void)
+char	*ft_strndup(const char *s, size_t n)
 {
-	ft_putstr("Usage: ./fillit target_file\n");
-	exit(0);
-}
+	unsigned int	i;
+	char			*cpy;
 
-int		ft_error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
+	if (!(cpy = (char*)malloc(sizeof(*cpy) * (n + 1))))
+		return (NULL);
+	i = -1;
+	while (*s && ++i < n)
+		cpy[i] = s[i];
+	cpy[i] = '\0';
+	return (cpy);
 }

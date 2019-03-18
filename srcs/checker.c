@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2018/01/04 16:06:22 by thescriv         ###   ########.fr       */
+/*   Created: 2019/03/14 17:19:44 by florientako       #+#    #+#             */
+/*   Updated: 2019/03/18 10:39:01 by florientako      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,35 @@ int					ft_map_check(char *read)
 	if (points % 4 || dieses % 4 || (end_line + 1) % 5)
 		ft_error();
 	return (dieses / 4);
+}
+
+void	ft_map_line_check(char *read)
+{
+	int		i;
+	int		ct;
+	int		line;
+
+	i = 0;
+	ct = 0;
+	line = 0;
+	while (read[i])
+	{
+		if (read[i] == '\n')
+		{
+			line++;
+			if (read[i + 1] == '\n' || read[i + 1] == '\0')
+			{
+				ct++;
+				if (line % 4)
+					ft_error();
+				line = 0;
+				i++;
+			}
+		}
+		i++;
+	}
+	if (line % 4)
+		ft_error();
 }
 
 void				ft_check_chaine(char *str)

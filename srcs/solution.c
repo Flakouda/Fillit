@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solution.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/01 01:34:23 by flakouda          #+#    #+#             */
-/*   Updated: 2018/01/04 17:21:17 by thescriv         ###   ########.fr       */
+/*   Created: 2019/03/14 17:20:25 by florientako       #+#    #+#             */
+/*   Updated: 2019/03/18 10:32:06 by florientako      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

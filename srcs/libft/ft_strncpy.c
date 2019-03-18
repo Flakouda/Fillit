@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:38 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:33 by florientako      ###   ########.fr       */
+/*   Created: 2018/11/08 15:51:18 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:14:33 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-int		ft_error_arguments(void)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	ft_putstr("Usage: ./fillit target_file\n");
-	exit(0);
-}
+	int i;
+	int j;
 
-int		ft_error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
+	j = 0;
+	i = 0;
+	while (n--)
+	{
+		dest[j] = src[i];
+		src[i] != '\0' ? i++ : 0;
+		j++;
+	}
+	return (dest);
 }

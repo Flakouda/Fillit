@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_nbmot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:38 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:33 by florientako      ###   ########.fr       */
+/*   Created: 2018/11/10 02:18:01 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:11:15 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-int		ft_error_arguments(void)
+int		ft_nbmot(char const *s, char c)
 {
-	ft_putstr("Usage: ./fillit target_file\n");
-	exit(0);
-}
+	int		i;
+	int		nb;
 
-int		ft_error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
+	nb = 0;
+	i = -1;
+	while (s[++i])
+		if ((s[i] == c && s[i + 1] != c && s[i + 1]) || (i == 0 && s[i] != c))
+			nb++;
+	return (nb);
 }

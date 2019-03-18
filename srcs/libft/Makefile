@@ -10,25 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
+NAME = libft.a
 
-LIBFT =	srcs/libft
-
-SRC_PATH = srcs/
-
-SRC_POS = $(addprefix $(SRC_PATH),$(SRC))
-
-SRC =	checker.c	\
-		error.c		\
-		fill.c		\
-		fonctions.c	\
-		main.c		\
-		solution.c	\
-
+SRC =	ft_memset.c					\
+		ft_bzero.c					\
+		ft_strlen.c					\
+		ft_strdup.c					\
+		ft_strndup.c				\
+		ft_strncpy.c				\
+		ft_strnew.c					\
+		ft_strsplit.c				\
+		ft_strsub.c					\
+		ft_nbmot.c					\
+		ft_strclen.c				\
+		ft_putstr.c					\
+		ft_putendl.c				\
+		ft_putchar.c				\
 
 OBJ = $(SRC:.c=.o)
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -c
 
 #**************************************************#
 
@@ -48,19 +49,16 @@ WHITE		= \033[0;37m
 
 #**************************************************#
 
-all	:	$(NAME)
+all : $(NAME)
 
 $(NAME) :
-	@make -C $(LIBFT)
-	@gcc $(FLAGS) -c $(SRC_POS)
-	@gcc $(FLAGS) $(OBJ) srcs/libft/libft.a -o $(NAME)
+	@gcc $(FLAGS) $(SRC)
+	@ar rc $(NAME) $(OBJ)
 
-clean	:
-	@make clean -C $(LIBFT)
+clean :
 	@rm -f $(OBJ)
 
-fclean	:	clean
-	@make fclean -C $(LIBFT)
+fclean : clean
 	@rm -f $(NAME)
 
-re	:	fclean	all
+re : fclean all

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 00:26:54 by flakouda          #+#    #+#             */
-/*   Updated: 2018/01/15 14:07:30 by flakouda         ###   ########.fr       */
+/*   Created: 2019/03/18 10:28:13 by florientako       #+#    #+#             */
+/*   Updated: 2019/03/18 10:28:50 by florientako      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include "../srcs/libft/libft.h"
+
 
 typedef struct		s_struct
 {
@@ -27,17 +29,6 @@ typedef struct		s_struct
 }					t_struct;
 
 void				ft_map_line_check(char *read);
-void				ft_putchar(char c);
-void				ft_bzero(void *s, size_t n);
-char				*ft_strncpy(char *dst, const char *src, size_t n);
-void				*ft_memset(void *b, int c, size_t n);
-size_t				ft_strlen(const char *s);
-void				ft_putendl(char const *s);
-char				*ft_strndup(const char *s1, size_t n);
-char				*ft_strnew(size_t size);
-void				ft_putstr(char const *s);
-char				*ft_strdup(const char *s1);
-char				**ft_strsplit(char const *s, char c);
 t_struct			*ft_default_xy(t_struct *block);
 int					main(int argc, char **argv);
 char				*ft_read_check(char *argv);

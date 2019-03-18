@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:38 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:33 by florientako      ###   ########.fr       */
+/*   Created: 2018/11/09 21:39:09 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:14:48 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-int		ft_error_arguments(void)
+char	*ft_strnew(size_t size)
 {
-	ft_putstr("Usage: ./fillit target_file\n");
-	exit(0);
-}
+	char	*tab;
 
-int		ft_error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
+	if (!(tab = (char *)malloc(sizeof(*tab) * (size + 1))))
+		return (NULL);
+	if (!size)
+		return (tab);
+	ft_memset(tab, '\0', size + 1);
+	return (tab);
 }

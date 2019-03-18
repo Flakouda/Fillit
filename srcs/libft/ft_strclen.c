@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
+/*   By: flakouda <flakouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/14 17:19:38 by florientako       #+#    #+#             */
-/*   Updated: 2019/03/18 10:31:33 by florientako      ###   ########.fr       */
+/*   Created: 2018/11/10 17:22:04 by florientako       #+#    #+#             */
+/*   Updated: 2018/11/30 13:13:16 by flakouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "libft.h"
 
-int		ft_error_arguments(void)
+int		ft_strclen(char const *s, char c, int p)
 {
-	ft_putstr("Usage: ./fillit target_file\n");
-	exit(0);
-}
+	int		i;
 
-int		ft_error(void)
-{
-	ft_putstr("error\n");
-	exit(1);
+	i = 0;
+	while (s[p] != c && s[p++])
+		i++;
+	return (i);
 }
