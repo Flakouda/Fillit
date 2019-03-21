@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 18:27:01 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/21 18:43:27 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void				ft_map_line_check(char *read)
 		read++;
 	}
 	(line % 4) ? ft_error() : 0;
+	ft_map_dotes_check(read);
 }
 
 void				ft_check_chaine(char *str)
