@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:38:42 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 18:15:39 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/21 17:12:36 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_struct			*ft_block(char *str)
 	c = 64;
 	i = ft_map_check(str);
 	ft_map_line_check(str);
+	ft_map_dotes_check(str);
 	if (!(block = (t_struct *)malloc(sizeof(t_struct))))
 		return (NULL);
 	tmp = block;
