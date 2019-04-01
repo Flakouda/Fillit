@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 00:26:54 by flakouda          #+#    #+#             */
-/*   Updated: 2019/04/01 17:12:48 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 21:38:19 by florientako      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_struct
 	struct s_struct	*next;
 }					t_struct;
 
+int					verif_dotes(int dotes, int dieses, int line);
 void				ft_check_map(int dieses, int line, int dotes);
 t_struct			*ft_default_xy(t_struct *block);
 int					main(int argc, char **argv);

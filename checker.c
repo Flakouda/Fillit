@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: florientakoudad <florientakoudad@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/04/01 17:43:41 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 22:02:03 by florientako      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,16 @@ int					ft_map_check(char *read)
 	while (read[++i])
 	{ 
 		if ((i % 21 == 0 && i != 0) || read[i + 1] == '\0')
-		{
 			read[i + 1] == '\0' ? line++ : line--;
-			ft_check_map(dieses, line, dotes);
-		}
+		((i % 21 == 0 && i != 0) || read[i + 1] == '\0') ?
+		ft_check_map(dieses, line, dotes) : 0;
 		read[i] == '#' ? dieses ++ : 0;
-		read[i] == '\n' ? line++ : 0;
+		read[i] == '\n' ? line += verif_dotes(dotes, dieses, line) : 0;
 		read[i] == '.' ? dotes++ : 0;
 		if (!(read[i] == '#' || read[i] == '.' || read[i] == '\n'))
         	ft_error();
 	}
-	i < 21 ? ft_error() : 0; 
+	i < 20 ? ft_error() : 0; 
 	return (dieses / 4);
 }
 
@@ -59,6 +58,20 @@ void				ft_check_map(int dieses, int line, int dotes)
 	dieses == line ? 0 : ft_error();
 	(dieses + dotes) % 16 == 0 ? 0 : ft_error();
 	line % 4  == 0 ? 0 : ft_error();
+}
+
+int					verif_dotes(int dotes, int dieses, int line)
+{
+	int		i;
+
+	i = (dotes + dieses) % 4;
+	if (line % 5 == 0)
+		return (1);
+	if (i == 0)
+		return (1);
+	if (i > 0)
+		ft_error();
+	return(0);
 }
 
 void				ft_check_chaine(char *str)
