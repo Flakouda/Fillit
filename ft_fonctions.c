@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:38:42 by flakouda          #+#    #+#             */
-/*   Updated: 2019/04/01 15:02:48 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:15:14 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_struct			*ft_block(char *str)
 	j = 0;
 	c = 64;
 	i = ft_map_check(str);
-	ft_map_line_check(str);
 	if (!(block = (t_struct *)malloc(sizeof(t_struct))))
 		return (NULL);
 	tmp = block;

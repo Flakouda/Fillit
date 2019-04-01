@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/04/01 15:48:56 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 17:43:41 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,50 +28,37 @@ char				*ft_read_check(char *argv)
 
 int					ft_map_check(char *read)
 {
-	int		points;
+	int		line;
+	int		dotes;
 	int		dieses;
-	int		end_line;
+	int		i;
 
-	points = 0;
+	i = -1;
+	line = 0;
+	dotes = 0;
 	dieses = 0;
-	end_line = 0;
-	while (*read)
-	{
-		*read == '#' ? dieses++ : 0;
-		*read == '.' ? points++ : 0;
-		*read == '\n' ? end_line++ : 0;
-		if (!(*read == '#' || *read == '.' || *read == '\n'))
-			ft_error();
-		read++;
+	while (read[++i])
+	{ 
+		if ((i % 21 == 0 && i != 0) || read[i + 1] == '\0')
+		{
+			read[i + 1] == '\0' ? line++ : line--;
+			ft_check_map(dieses, line, dotes);
+		}
+		read[i] == '#' ? dieses ++ : 0;
+		read[i] == '\n' ? line++ : 0;
+		read[i] == '.' ? dotes++ : 0;
+		if (!(read[i] == '#' || read[i] == '.' || read[i] == '\n'))
+        	ft_error();
 	}
-	if (points % 4 || dieses % 4 || (end_line + 1) % 5 || dieses < 4)
-		ft_error();
+	i < 21 ? ft_error() : 0; 
 	return (dieses / 4);
 }
 
-void				ft_map_line_check(char *read)
+void				ft_check_map(int dieses, int line, int dotes)
 {
-	int		line;
-	char	*tmp;
-
-	tmp = read;
-	line = 0;
-	while (*read)
-	{
-		if (*read == '\n')
-		{
-			line++;
-			if (*(read + 1) == '\n' || *(read + 1) == '\0')
-			{
-				(line % 4) ? ft_error() : 0;
-				line = 0;
-				read++;
-			}
-		}
-		read++;
-	}
-	(line % 4) ? ft_error() : 0;
-	ft_map_dotes_check(tmp);
+	dieses == line ? 0 : ft_error();
+	(dieses + dotes) % 16 == 0 ? 0 : ft_error();
+	line % 4  == 0 ? 0 : ft_error();
 }
 
 void				ft_check_chaine(char *str)
