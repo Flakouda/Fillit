@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 00:26:54 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/21 17:50:07 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:16:34 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include "libft/libft.h"
+# include <stdio.h>
 
 typedef struct		s_struct
 {
@@ -27,7 +28,7 @@ typedef struct		s_struct
 	struct s_struct	*next;
 }					t_struct;
 
-void				ft_map_dotes_check(char *read);
+void				ft_map_dotes_check(char *str);
 void				ft_map_line_check(char *read);
 t_struct			*ft_default_xy(t_struct *block);
 int					main(int argc, char **argv);
@@ -46,6 +47,7 @@ char				**ft_saved(char **tab, t_struct *block, int max);
 char				**ft_reset(char **tab, t_struct *block, int max);
 int					ft_error_arguments(void);
 int					ft_error(void);
+void				ft_free_tab(char **tab);
 char				**ft_fill_empty(char **tab, int max);
 int					ft_max_size(t_struct *block);
 

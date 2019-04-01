@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:24:09 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/21 18:43:27 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:48:56 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,12 @@ char				*ft_read_check(char *argv)
 {
 	int		fd;
 	int		ret;
-	int		i;
-	char	tmp[545];
-	char	buffer[1];
+	char	tmp[546];
 
-	i = 0;
 	(fd = open(argv, O_RDONLY)) == -1 ? ft_error() : 0;
-	while ((ret = read(fd, buffer, 1)))
-	{
-		tmp[i] = buffer[0];
-		i++;
-		i > 545 ? ft_error() : 0;
-	}
-	tmp[i] = '\0';
+	ret = read(fd, tmp, 546);
+	ret > 545 ? ft_error() : 0;
+	tmp[ret] = 0;
 	close(fd) == -1 ? ft_error() : 0;
 	return (ft_strdup(tmp));
 }
@@ -59,7 +52,9 @@ int					ft_map_check(char *read)
 void				ft_map_line_check(char *read)
 {
 	int		line;
+	char	*tmp;
 
+	tmp = read;
 	line = 0;
 	while (*read)
 	{
@@ -76,7 +71,7 @@ void				ft_map_line_check(char *read)
 		read++;
 	}
 	(line % 4) ? ft_error() : 0;
-	ft_map_dotes_check(read);
+	ft_map_dotes_check(tmp);
 }
 
 void				ft_check_chaine(char *str)

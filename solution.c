@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 01:34:23 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/18 18:20:04 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/03/28 14:56:23 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 char				**ft_result(t_struct *block, int max)
 {
 	char	**tab;
+	char	**tmp;
 
 	tab = NULL;
 	while (!tab)
 	{
 		tab = ft_fill_empty(tab, max);
+		tmp = tab;
 		tab = ft_solve(tab, block, max);
+		if (!tab)
+			ft_free_tab(tmp);
 		max++;
 	}
 	return (tab);

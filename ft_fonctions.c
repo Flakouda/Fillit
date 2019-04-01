@@ -6,7 +6,7 @@
 /*   By: floakoud <floakoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 00:38:42 by flakouda          #+#    #+#             */
-/*   Updated: 2019/03/21 18:42:03 by floakoud         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:02:48 by floakoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_struct			*ft_block_xy(t_struct *block, char **tab)
 			}
 		}
 	}
+	ft_free_tab(tab);
 	return (block);
 }
 
